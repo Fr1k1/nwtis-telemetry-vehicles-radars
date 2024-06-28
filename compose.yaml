@@ -1,0 +1,79 @@
+version: '1'
+
+name: nwtis_docker_compose
+
+networks:
+   nwtis:
+    external: true 
+    name: nwtis
+    driver: bridge   
+    ipam:
+      config:
+        - subnet: 20.24.5.0/24
+          gateway: 20.24.5.1
+          
+services:
+   app_servis:
+      image: nwtis_app
+      container_name: nwtis_app_kontejner
+      build:
+         context: ./mfriscic20_vjezba_07_dz_2_app
+         dockerfile: ./Dockerfile.app
+      restart: unless-stopped
+      networks:
+        nwtis:
+          ipv4_address: 20.24.5.2
+
+   h2_servis:
+      image: nwtis_h2_dz_2i
+      container_name: nwtis_h2_dz_2c
+      build:
+         dockerfile: ./Dockerfile.h2
+      restart: unless-stopped
+      networks:
+        nwtis:
+          ipv4_address: 20.24.5.4
+      volumes:
+      - type: volume
+        source: nwtis_h2_dz_2v
+        target: /opt/database
+       
+
+
+   hsql_servis:
+      image: nwtis_hsql_dz_2i
+      container_name: nwtis_hsql_dz_2c
+      build:
+         dockerfile: ./Dockerfile.hsql
+      restart: unless-stopped
+      networks:
+        nwtis:
+          ipv4_address: 20.24.5.3
+      volumes:
+      - type: volume
+        source: nwtis_hsql_dz_2v
+        target: /opt/data
+
+
+   servisi_servis:
+      image: nwtis_servisi_kontejner
+      container_name: nwtis_servisi_kontejner
+      build:
+         context: ./mfriscic20_vjezba_07_dz_2_servisi
+         dockerfile: ./Dockerfile.servisi
+      restart: unless-stopped
+      networks:
+        nwtis:
+          ipv4_address: 20.24.5.5
+      ports:
+      - 9080:8080
+      depends_on:
+      - h2_servis
+      - hsql_servis
+      - app_servis
+
+volumes:
+  nwtis_h2_dz_2v:
+    external: true
+  nwtis_hsql_dz_2v:
+    external: true

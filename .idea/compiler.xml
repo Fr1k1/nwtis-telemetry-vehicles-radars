@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mfriscic20_vjezba_07_dz_2_lib" />
+        <module name="mfriscic20_vjezba_07_dz_2_lib_rest" />
+        <module name="mfriscic20_vjezba_07_dz_2_servisi" />
+        <module name="mfriscic20_vjezba_07_dz_2_app" />
+        <module name="mfriscic20_vjezba_07_dz_2_lib_konfig" />
+        <module name="mfriscic20_vjezba_07_dz_2_klijenti" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

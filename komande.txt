@@ -1,0 +1,88 @@
+Komande za Docker:
+
+docker container remove nwtis_hsql_dz_2c
+
+docker container remove nwtis_h2_dz_2c
+
+docker image remove nwtis_hsql_dz_2i
+
+docker image remove nwtis_h2_dz_2i
+
+docker volume remove nwtis_hsql_dz_2v
+
+docker volume remove nwtis_h2_dz_2v
+
+docker network remove nwtis_dz_2n
+
+-----------------------------------------------------------------------
+
+docker network create --subnet=20.24.5.0/24 nwtis_dz_2n
+
+docker network inspect nwtis_dz_2n
+
+docker volume create nwtis_hsql_dz_2v
+
+docker volume inspect nwtis_hsql_dz_2v
+
+sudo ls -al /var/lib/docker/volumes/nwtis_hsql_dz_2v/_data
+
+sudo cp -R /opt/hsqldb-2.7.2/hsqldb/data/* \
+/var/lib/docker/volumes/nwtis_hsql_dz_2v/_data/
+
+cd mfriscic20/mfriscic20_vjezba_07_dz_2/
+
+-jako je bitno da je iz te mape
+
+docker build -t nwtis_hsql_dz_2i -f Dockerfile.hsql .
+
+-ovo se mice iz zadace:
+
+docker run -it -d --network=nwtis_dz_2n --ip 20.24.5.3 \
+-p 9001:9001 \
+--name=nwtis_hsql_dz_2c --hostname=nwtis_hsql_dz_2c \
+--mount source=nwtis_hsql_dz_2v,target=/opt/data \
+nwtis_hsql_dz_2i:latest
+
+-pazi dal je h2 baza ili ova druga!!!!
+
+
+ocker run -it -d --network=nwtis_dz_2n --ip 20.24.5.4 \
+-p 9092:9092 \
+--name=nwtis_h2_dz_2c --hostname=nwtis_h2_dz_2c \
+--mount source=nwtis_h2_dz_2v,target=/usr/app/podaci \
+nwtis_h2_dz_2i:latest
+
+docker container stop nwtis_h2_dz_2c
+
+docker container remove nwtis_h2_dz_2c
+
+
+
+java -jar target/mfriscic20_vjezba_07_dz_2_servisi-1.0.0-jar-with-dependencies.jar
+
+
+docker volume create nwtis_h2_dz_2v
+
+docker volume inspect nwtis_h2_dz_2v
+
+docker build -t nwtis_h2_dz_2i -f Dockerfile.h2 .
+
+sudo ls -al /var/lib/docker/volumes/nwtis_h2_dz_2v/_data
+
+
+
+
+
+dz- podatke sprema u memoriji..ne komunicira s bazom (radari)
+
+
+
+
+
+-za h2
+
+docker run -it -d --network=nwtis_dz_2n --ip 20.24.5.4 \
+-p 9092:9092 \
+--name=nwtis_h2_dz_2c --hostname=nwtis_h2_dz_2c \
+--mount source=nwtis_h2_dz_2v,target=/opt/database \
+nwtis_h2_dz_2i:latest

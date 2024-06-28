@@ -1,0 +1,54 @@
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{"id": "1", "vrijemePocetak": "1711348009", "vrijemeKraj": "1711368009", "brzina": "21.767", "gpsSirina": "46.286608", "gpsDuzina": "16.353131", "gpsSirinaRadar": "46.286602", "gpsDuzinaRadar": "16.353136"}' "http://localhost:8080/nwtis/v1/api/kazne"
+curl -X GET -H "Accept: application/json" "http://localhost:8080/nwtis/v1/api/kazne"
+curl -X GET -H "Accept: application/json" "http://localhost:8080/nwtis/v1/api/kazne/1"
+curl -X GET -H "Accept: application/json" "http://localhost:8080/nwtis/v1/api/kazne/2"
+curl -X GET -H "Accept: application/json" "http://localhost:8080/nwtis/v1/api/kazne?od=1711368000&do=1711369000"
+curl -X GET -H "Accept: application/json" "http://localhost:8080/nwtis/v1/api/kazne/vozilo/1"
+curl -X GET -H "Accept: application/json" "http://localhost:8080/nwtis/v1/api/kaznevozilo/1?od=1711368000&do=1711369000"
+curl -I -H "Accept: application/json" "http://localhost:8080/nwtis/v1/api/kazne"
+
+-8080 je za lokalnu bazu, 9080 je na dockeru
+
+
+
+-jako je vazno da je bez sudo jer sudo i obicni korisnik nemaju istu verziju Java JRE!!!
+
+java -jar target/mfriscic20_vjezba_07_dz_2_servisi-1.0.0-jar-with-dependencies.jar
+
+cd /opt/hsqldb-2.7.2/hsqldb/data
+
+sudo java -classpath ../lib/hsqldb.jar org.hsqldb.server.Server --database.0 file:nwtis_3 --dbname.0 nwtis_3 --port 9001
+
+sudo java -Dfile.encoding=UTF-8 -cp /opt/h2/bin/h2-2.2.224.jar org.h2.tools.Server -tcp -tcpAllowOthers -webAllowOthers -baseDir /opt/database -ifNotExists
+
+
+
+
+PAYARA:
+
+na klijenti terminalu
+mvn clean package
+
+
+u novom terminalu:
+cd /opt/payara6-web/glassfish/bin
+./startserv 
+http://localhost:4848
+na klijenti terminalu
+
+mvn cargo:redeploy -P ServerEE-local
+
+
+APP:
+
+java -cp target/mfriscic20_vjezba_07_dz_2_app-1.1.0-jar-with-dependencies.jar edu.unizg.foi.nwtis.mfriscic20.vjezba_07_dz_2.posluzitelji.CentralniSustav NWTiS_DZ1_CS.txt
+
+java -cp target/mfriscic20_vjezba_07_dz_2_app-1.1.0-jar-with-dependencies.jar edu.unizg.foi.nwtis.mfriscic20.vjezba_07_dz_2.posluzitelji.PosluziteljRadara NWTiS_DZ1_R1.txt
+
+java -cp target/mfriscic20_vjezba_07_dz_2_app-1.1.0-jar-with-dependencies.jar edu.unizg.foi.nwtis.mfriscic20.vjezba_07_dz_2.posluzitelji.PosluziteljRadara NWTiS_DZ1_R2.txt
+
+java -cp target/mfriscic20_vjezba_07_dz_2_app-1.1.0-jar-with-dependencies.jar edu.unizg.foi.nwtis.mfriscic20.vjezba_07_dz_2.posluzitelji.PosluziteljKazni NWTiS_DZ1_PK.txt
+
+java -cp target/mfriscic20_vjezba_07_dz_2_app-1.1.0-jar-with-dependencies.jar edu.unizg.foi.nwtis.mfriscic20.vjezba_07_dz_2.klijenti.SimulatorVozila NWTiS_DZ1_SV.txt NWTiS_DZ1_V1.csv 1
+
+
