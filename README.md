@@ -129,10 +129,13 @@ Zhis project was made for the needs of advanced web technology and services cour
 
 System scheme:
 
-![image](https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/75840191-7547-4873-90bc-a82a61490e60)
-![image](https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/ce102bbe-ae19-4a1e-8617-4cc1952ab2e2)
+![image](https://github.com/Fr1k1/nwtis-telemetry-vehicles-radars/assets/56409530/1a3f7123-02b0-4e14-b128-c03ceba219f8)
 
-System installation architecture and methods of RESTful web services:
+![image](https://github.com/Fr1k1/nwtis-telemetry-vehicles-radars/assets/56409530/db5f2889-7dc3-4909-be89-0c04a9ff1620)
 
-![image](https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/45db8b75-7f15-45c7-9e20-e774580c2a1a)
+
+## System architecture and methods of RESTful web services and Docker network:
+
+![image](https://github.com/Fr1k1/nwtis-telemetry-vehicles-radars/assets/56409530/ff416283-c44e-4d47-9b3f-d1835e19e8c0)
+
 
