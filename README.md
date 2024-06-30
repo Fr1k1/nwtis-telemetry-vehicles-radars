@@ -25,10 +25,10 @@ This is an application that is used for issuing speeding tickets for vehicles th
 User can choose which database (H2 or HSQL) he wants to use.
 
 ## Project description
-The system is designed to simulate driving electric vehicles in a city using real data stored in CSV files. It starts by specifying a file name and then reads and processes all the data. 
-This information is sent to radar systems located throughout the city, which are positioned based on GPS coordinates. When a vehicle enters the range of an active radar, the system checks if it is speeding. 
-If the vehicle exceeds the speed limit defined by the radar (e.g., driving faster than 40 km/h for more than 7 seconds without any abnormal behavior), the radar issues a speeding ticket and stores the details in a database.
-Zhis project was made for the needs of advanced web technology and services courses at the college (NWTiS).
+The system is designed to simulate driving vehicles in a city using  data stored in CSV files. Files first need to be processed to work with them. The simulation by itself starts by specifying a file name and then reads and processes all the data. 
+Information from file that was chosen is sent to radars located throughout the city and they have GPS coordinates for position. When a vehicle enters the range of an active radar, the system checks if it is speeding. If radar is not activated, then it will not give tickets.
+If the vehicle exceeds the speed limit defined by the radar (e.g., driving faster then 60 km/h for more than 5 seconds without any abnormal behavior or some similar data depending on radar), the radar issues a ticket and stores the details in a database.
+This project was made for the needs of advanced web technology and services courses at the college (NWTiS).
 
 ### Features:
 <ul>
