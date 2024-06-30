@@ -6,12 +6,11 @@ This is an application that is used for issuing speeding tickets for vehicles th
 ## Technologies
 
 <div class="flex">
-<img src="https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/3fb6d9b3-8fac-42b9-b283-5f54f3915151" height="50" style="margin-right: 20px;">
-<img src="https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/f9f44f3c-3cea-4cef-87ef-30e7502518f5" height="50" style="margin-right: 20px;">
-<img src="https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/f6a837a3-c4bd-478f-a5d5-8bd178351f49" height="50" style="margin-right: 20px;">
-<img src="https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/d341a775-334b-498e-bbc2-806316ec8963" height="50" style="margin-right: 20px;">
-<img src="https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/f9e3077e-c5ef-4cd8-9570-042eb820f5a3" height="50" style="margin-right: 20px;">
-<img src="https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/6be1116d-5366-450d-bfe6-677dd2840d71" height="50">
+<img src="https://i.pinimg.com/736x/e9/94/61/e99461fdd5b3db8bdb3081d8acf5e524.jpg" height="50" style="margin-right: 20px;">
+<img src="https://www.payara.fish/payara-site/themes/payara/nav/logo-social.png" height="50" style="margin-right: 20px;">
+<img src="https://banner2.cleanpng.com/20180802/ipp/kisspng-docker-logo-kubernetes-microservices-cloud-computi-r-amp-d-solutions-custom-clould-solutions-5b63385043d6b1.3283562915332291362779.jpg" height="50" style="margin-right: 20px;">
+<img src="https://www.itqlick.com/Graphics/Modules/Products/Logos/4716.jpg" height="50" style="margin-right: 20px;">
+<img src="https://dbdb.io/media/logos/h2-logo.svg" height="50">
 </div>
 
 <ul>
@@ -29,6 +28,7 @@ User can choose which database (H2 or HSQL) he wants to use.
 The system is designed to simulate driving electric vehicles in a city using real data stored in CSV files. It starts by specifying a file name and then reads and processes all the data. 
 This information is sent to radar systems located throughout the city, which are positioned based on GPS coordinates. When a vehicle enters the range of an active radar, the system checks if it is speeding. 
 If the vehicle exceeds the speed limit defined by the radar (e.g., driving faster than 40 km/h for more than 7 seconds without any abnormal behavior), the radar issues a speeding ticket and stores the details in a database.
+Zhis project was made for the needs of advanced web technology and services courses at the college (NWTiS).
 
 ### Features:
 <ul>
@@ -125,8 +125,6 @@ If the vehicle exceeds the speed limit defined by the radar (e.g., driving faste
 </ul>
 
 
-<div id="architecture"></div>
-
 ## Architecture
 
 System scheme:
@@ -137,12 +135,4 @@ System scheme:
 System installation architecture and methods of RESTful web services:
 
 ![image](https://github.com/CroAnna/telemetry-tickets-radar/assets/90924342/45db8b75-7f15-45c7-9e20-e774580c2a1a)
-
-
-<div id="more"></div>
-
-## More details
-
-Find out more about this project in <a href="https://github.com/CroAnna/telemetry-tickets-radar/blob/main/project-description.pdf">project requirements file</a>.
-
 
